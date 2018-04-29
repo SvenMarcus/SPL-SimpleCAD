@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties/>
+    <struct>
+        <and abstract="true" mandatory="true" name="SimpleCAD">
+            <and abstract="true" mandatory="true" name="Shapes">
+                <feature name="Line"/>
+                <feature name="Rectangle"/>
+                <feature name="Circle"/>
+                <and abstract="true" name="ShapeOperations">
+                    <feature name="Move"/>
+                    <feature name="Scale"/>
+                    <feature name="Rotate"/>
+                </and>
+            </and>
+            <and abstract="true" name="GUI">
+                <and abstract="true" name="GUIOperations">
+                    <feature name="Zoom"/>
+                    <feature name="Pan"/>
+                    <feature name="Undo"/>
+                    <feature name="Redo"/>
+                </and>
+                <alt abstract="true" mandatory="true" name="Input">
+                    <feature name="Keyboard"/>
+                    <feature name="Mouse"/>
+                </alt>
+                <feature mandatory="true" name="ShapeRenderer"/>
+            </and>
+            <and abstract="true" name="Serialization">
+                <feature name="Save"/>
+                <feature name="Load"/>
+            </and>
+        </and>
+    </struct>
+    <constraints/>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>
