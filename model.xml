@@ -4,27 +4,67 @@
     <struct>
         <and abstract="true" mandatory="true" name="SimpleCAD">
             <and abstract="true" mandatory="true" name="Shapes">
+                <description>
+Objekte, die in der Applikation erstellt werden können
+</description>
                 <feature name="Line"/>
                 <feature name="Rectangle"/>
                 <feature name="Circle"/>
+                <feature name="BezierCurve"/>
                 <and abstract="true" name="ShapeOperations">
-                    <feature name="Move"/>
+                    <description>
+Operationen, die auf Shapes angewendet werden können
+</description>
+                    <and abstract="true" name="Move">
+                        <feature name="ShapeMove"/>
+                        <feature name="SinglePointMove"/>
+                    </and>
                     <feature name="Scale"/>
                     <feature name="Rotate"/>
+                    <feature name="Mirror"/>
                 </and>
             </and>
             <and abstract="true" name="GUI">
+                <description>
+Grafische Oberfläche der Applikation
+</description>
                 <and abstract="true" name="GUIOperations">
+                    <feature name="SelectShape"/>
+                    <feature name="DeleteShape"/>
                     <feature name="Zoom"/>
                     <feature name="Pan"/>
+                    <feature name="ClearAll"/>
                     <feature name="Undo"/>
                     <feature name="Redo"/>
                 </and>
                 <alt abstract="true" mandatory="true" name="Input">
                     <feature name="Keyboard"/>
-                    <feature name="Mouse"/>
+                    <and name="Mouse">
+                        <feature name="SnapToPoint"/>
+                    </and>
                 </alt>
-                <feature mandatory="true" name="ShapeRenderer"/>
+                <and mandatory="true" name="ShapeRenderer">
+                    <description>
+Renderer für Shapes
+</description>
+                    <and abstract="true" name="DisplayStyle">
+                        <description>
+Verschiedene Darstellungsarten für Shapes
+</description>
+                        <feature name="Color"/>
+                        <feature name="LineStyle"/>
+                    </and>
+                    <feature name="ShapeOperationLivePreview">
+                        <description>
+Echtzeitvorschau von Shape-Operationen
+</description>
+                    </feature>
+                </and>
+                <feature name="DrawingGrid">
+                    <description>
+Gitter zur Vereinfachung des Zeichenvorgangs
+</description>
+                </feature>
             </and>
             <and abstract="true" name="Serialization">
                 <feature name="Save"/>
