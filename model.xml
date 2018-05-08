@@ -11,6 +11,8 @@ Objekte, die in der Applikation erstellt werden können
                 <feature name="Rectangle"/>
                 <feature name="Circle"/>
                 <feature name="BezierCurve"/>
+                <feature name="Node"/>
+                <feature name="SimulationGrid"/>
                 <and abstract="true" name="ShapeOperations">
                     <description>
 Operationen, die auf Shapes angewendet werden können
@@ -37,12 +39,12 @@ Grafische Oberfläche der Applikation
                     <feature name="Undo"/>
                     <feature name="Redo"/>
                 </and>
-                <alt abstract="true" mandatory="true" name="Input">
+                <or abstract="true" mandatory="true" name="Input">
                     <feature name="Keyboard"/>
                     <and name="Mouse">
                         <feature name="SnapToPoint"/>
                     </and>
-                </alt>
+                </or>
                 <and mandatory="true" name="ShapeRenderer">
                     <description>
 Renderer für Shapes
@@ -69,6 +71,11 @@ Gitter zur Vereinfachung des Zeichenvorgangs
             <and abstract="true" name="Serialization">
                 <feature name="Save"/>
                 <feature name="Load"/>
+                <feature name="Export"/>
+            </and>
+            <and abstract="true" name="Algorithms">
+                <feature name="CFDSimulation"/>
+                <feature name="FEMAnalysis"/>
             </and>
         </and>
     </struct>

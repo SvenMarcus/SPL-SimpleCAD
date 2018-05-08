@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="SimpleCAD"/>
+    <feature automatic="selected" name="Shapes"/>
+    <feature manual="selected" name="Line"/>
+    <feature manual="selected" name="Rectangle"/>
+    <feature manual="selected" name="Circle"/>
+    <feature manual="selected" name="BezierCurve"/>
+    <feature automatic="selected" name="ShapeOperations"/>
+    <feature automatic="selected" manual="selected" name="Move"/>
+    <feature manual="selected" name="ShapeMove"/>
+    <feature manual="selected" name="SinglePointMove"/>
+    <feature manual="selected" name="Scale"/>
+    <feature manual="selected" name="Rotate"/>
+    <feature manual="selected" name="Mirror"/>
+    <feature automatic="selected" name="GUI"/>
+    <feature automatic="selected" name="GUIOperations"/>
+    <feature manual="selected" name="SelectShape"/>
+    <feature manual="selected" name="DeleteShape"/>
+    <feature manual="selected" name="Zoom"/>
+    <feature manual="selected" name="Pan"/>
+    <feature manual="selected" name="ClearAll"/>
+    <feature manual="selected" name="Undo"/>
+    <feature manual="selected" name="Redo"/>
+    <feature automatic="selected" name="Input"/>
+    <feature manual="selected" name="Keyboard"/>
+    <feature automatic="selected" manual="selected" name="Mouse"/>
+    <feature manual="selected" name="SnapToPoint"/>
+    <feature automatic="selected" name="ShapeRenderer"/>
+    <feature manual="selected" name="DisplayStyle"/>
+    <feature manual="selected" name="ShapeOperationLivePreview"/>
+    <feature manual="selected" name="DrawingGrid"/>
+    <feature automatic="selected" name="Serialization"/>
+    <feature manual="selected" name="Save"/>
+    <feature manual="selected" name="Load"/>
+    <feature manual="selected" name="Export"/>
+</configuration>
