@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: de.bechte.junit:junit-hierarchicalcontextrunner:4.12.1">
+    <archive path="/Users/svenmarcus/.m2/repository/de/bechte/junit/junit-hierarchicalcontextrunner/4.12.1/junit-hierarchicalcontextrunner-4.12.1.jar" />
+  </library>
+  <library name="Maven: junit:junit:4.12">
+    <archive path="/Users/svenmarcus/.m2/repository/junit/junit/4.12/junit-4.12.jar" />
+  </library>
+  <library name="Maven: org.hamcrest:hamcrest-core:1.3">
+    <archive path="/Users/svenmarcus/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
+  </library>
+</eclipse-userlibraries>
+
