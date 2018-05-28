@@ -71,31 +71,31 @@ public class MainWindow extends JFrame {
 
         mouseInputHandler.registerButtonPolicy("MOUSE_1", new BuildCommand(buildShapeStrategy, canvasRepaintCommand));
 
-          
+        /* if[DeleteShape] */
         mouseInputHandler.registerButtonPolicy("MOUSE_3", new DeleteCommand(repository, canvasRepaintCommand));
-          
+        /* end[DeleteShape] */
 
-          
+        /* if[Line] */
         BeginDrawTransaction lineTransaction = new BeginDrawTransaction("Line", buildShapeStrategy);
         mainWindow.addToolBarCommand(lineTransaction);
-          
+        /* end[Line] */
 
-         
+        /* if[Rectange] */
+        BeginDrawTransaction rectangleTransaction = new BeginDrawTransaction("Rectangle", buildShapeStrategy);
+        mainWindow.addToolBarCommand(rectangleTransaction);
+        /* end[Rectange] */
 
+        /* if[Node] */
+        BeginDrawTransaction nodeTransaction = new BeginDrawTransaction("Node", buildShapeStrategy);
+        mainWindow.addToolBarCommand(nodeTransaction);
+        /* end[Node] */
 
- 
-
-         
-
-
- 
-
-          
+        /* if[Keyboard] */
         KeyBoardInput console = new KeyBoardInput();
         KeyboardInputParser parser = new KeyboardInputParser(new ShapeBuilderFactoryImpl(), buildShapeStrategy, console);
         console.setParser(parser);
         mainWindow.add(console, BorderLayout.SOUTH);
-          
+        /* end[Keyboard] */
 
         mainWindow.setCanvasPresenter(mouseInputHandler);
         mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

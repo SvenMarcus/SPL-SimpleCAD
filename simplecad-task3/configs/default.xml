@@ -2,4 +2,9 @@
 <configuration>
     <feature automatic="selected" name="SimpleCAD"/>
     <feature automatic="selected" name="Shapes"/>
+    <feature manual="selected" name="Line"/>
+    <feature automatic="selected" name="GUI"/>
+    <feature automatic="selected" name="Input"/>
+    <feature manual="selected" name="Mouse"/>
+    <feature automatic="selected" name="ShapeRenderer"/>
 </configuration>
