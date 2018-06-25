@@ -18,8 +18,9 @@ Objekte, die in der Applikation erstellt werden können
 Operationen, die auf Shapes angewendet werden können
 </description>
                     <and abstract="true" name="Move">
-                        <feature name="ShapeMove"/>
-                        <feature name="SinglePointMove"/>
+                        <and name="ShapeMove">
+                            <feature name="SinglePointMove"/>
+                        </and>
                     </and>
                     <feature name="Scale"/>
                     <feature name="Rotate"/>

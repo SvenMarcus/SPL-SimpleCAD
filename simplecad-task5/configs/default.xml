@@ -5,8 +5,16 @@
     <feature manual="selected" name="Line"/>
     <feature manual="selected" name="Rectangle"/>
     <feature manual="selected" name="Node"/>
+    <feature automatic="selected" name="ShapeOperations"/>
+    <feature automatic="selected" name="Move"/>
+    <feature automatic="selected" manual="selected" name="ShapeMove"/>
+    <feature manual="selected" name="SinglePointMove"/>
     <feature automatic="selected" name="GUI"/>
+    <feature automatic="selected" name="GUIOperations"/>
+    <feature manual="selected" name="DeleteShape"/>
+    <feature manual="selected" name="ClearAll"/>
     <feature automatic="selected" name="Input"/>
+    <feature manual="selected" name="Keyboard"/>
     <feature manual="selected" name="Mouse"/>
     <feature automatic="selected" name="ShapeRenderer"/>
 </configuration>

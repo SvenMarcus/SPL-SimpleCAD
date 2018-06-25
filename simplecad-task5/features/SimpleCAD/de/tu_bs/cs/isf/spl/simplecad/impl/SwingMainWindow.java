@@ -1,7 +1,8 @@
 package de.tu_bs.cs.isf.spl.simplecad.impl;
 
 import de.tu_bs.cs.isf.spl.simplecad.core.input.MouseInputHandler;
-import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.BeginDrawTransaction;
+
+import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.Transaction;
 import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.Canvas;
 import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.MainWindow;
 
@@ -33,8 +34,8 @@ public class SwingMainWindow extends JFrame implements MainWindow {
     }
 
     @Override
-    public void addDrawCommand(final BeginDrawTransaction transaction) {
-        JButton lineButton = new JButton(transaction.getShapeType());
+    public void addDrawCommand(final Transaction transaction) {
+        JButton lineButton = new JButton(transaction.getName());
         lineButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 transaction.execute();

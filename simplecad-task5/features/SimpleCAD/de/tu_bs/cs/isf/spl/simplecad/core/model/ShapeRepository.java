@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class ShapeRepository {
 
     private List<Shape> shapes = new ArrayList<Shape>();
@@ -14,6 +15,10 @@ public class ShapeRepository {
 
     public void removeShape(Shape shape) {
         shapes.remove(shape);
+    }
+    
+    public void clear() {
+    	shapes.clear();
     }
 
     public Iterator<Shape> shapes() {

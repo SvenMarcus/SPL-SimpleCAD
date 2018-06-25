@@ -1,8 +1,10 @@
 package de.tu_bs.cs.isf.spl.simplecad.impl; 
 
 import de.tu_bs.cs.isf.spl.simplecad.core.input.MouseInputHandler; 
-import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.BeginDrawTransaction; 
+
+import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.Transaction; 
 import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.Canvas; 
+
 import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.MainWindow; 
 
 import javax.swing.*; 
@@ -10,7 +12,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener; 
 
-public  class  SwingMainWindow  extends JFrame  implements MainWindow {
+import java.awt.BorderLayout; 
+import java.awt.HeadlessException; 
+
+import javax.swing.JFrame; 
+import de.tu_bs.cs.isf.spl.simplecad.plugins.keyboard.TextField; 
+
+public   class  SwingMainWindow  extends JFrame  implements MainWindow {
 	
     private SwingCanvas canvas;
 
@@ -44,8 +52,8 @@ public  class  SwingMainWindow  extends JFrame  implements MainWindow {
 	
 
     @Override
-    public void addDrawCommand(final BeginDrawTransaction transaction) {
-        JButton lineButton = new JButton(transaction.getShapeType());
+    public void addDrawCommand(final Transaction transaction) {
+        JButton lineButton = new JButton(transaction.getName());
         lineButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 transaction.execute();
@@ -74,6 +82,12 @@ public  class  SwingMainWindow  extends JFrame  implements MainWindow {
         canvas.setBackground(Color.GRAY);
         return canvas;
     }
+
+	
+
+	public void addTextField(TextField textField) {
+		add((SwingTextField) textField, BorderLayout.SOUTH);
+	}
 
 
 }

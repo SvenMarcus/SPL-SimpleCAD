@@ -3,7 +3,7 @@ package de.tu_bs.cs.isf.spl.simplecad.core.mainwindow;
 import de.tu_bs.cs.isf.spl.simplecad.core.builder.BuildShapeStrategy;
 import de.tu_bs.cs.isf.spl.simplecad.core.builder.ShapeBuilderFactory;
 
-public class BeginDrawTransaction {
+public class BeginDrawTransaction implements Transaction {
 
     private final ShapeBuilderFactory builderFactory;
     private final String type;
@@ -19,7 +19,7 @@ public class BeginDrawTransaction {
         shapeStrategy.setShapeBuilder(builderFactory.makeShapeBuilder(type));
     }
 
-    public String getShapeType() {
+    public String getName() {
         return type;
     }
 }

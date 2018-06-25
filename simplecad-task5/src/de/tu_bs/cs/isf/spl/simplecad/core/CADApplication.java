@@ -1,4 +1,6 @@
-package de.tu_bs.cs.isf.spl.simplecad.core; import de.tu_bs.cs.isf.spl.simplecad.core.builder.BuildShapeStrategy; 
+package de.tu_bs.cs.isf.spl.simplecad.core; 
+
+import de.tu_bs.cs.isf.spl.simplecad.core.builder.BuildShapeStrategy; 
 import de.tu_bs.cs.isf.spl.simplecad.core.builder.ShapeBuilder; 
 import de.tu_bs.cs.isf.spl.simplecad.core.builder.ShapeBuilderFactory; 
 import de.tu_bs.cs.isf.spl.simplecad.core.input.BuildCommand; 
@@ -8,6 +10,11 @@ import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.CanvasRepaintCommand;
 import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.ComponentFactory; 
 import de.tu_bs.cs.isf.spl.simplecad.core.mainwindow.MainWindow; 
 import de.tu_bs.cs.isf.spl.simplecad.core.model.ShapeRepository; 
+import de.tu_bs.cs.isf.spl.simplecad.plugins.moveshape.ShapeMoveCommand; 
+import de.tu_bs.cs.isf.spl.simplecad.plugins.delete.DeleteCommand; 
+import de.tu_bs.cs.isf.spl.simplecad.plugins.clearshapes.ClearShapesTransaction; 
+import de.tu_bs.cs.isf.spl.simplecad.plugins.keyboard.*; 
+
 
 public   class  CADApplication {
 	
@@ -92,9 +99,40 @@ public   class  CADApplication {
 
 	
 
-	private void initialize(ComponentFactory factory, ShapeBuilderFactory shapeBuilderFactory) {
+	 private void  initialize__wrappee__Node  (ComponentFactory factory, ShapeBuilderFactory shapeBuilderFactory) {
         initialize__wrappee__Rectangle(factory, shapeBuilderFactory);
         mainWindow.addDrawCommand(new BeginDrawTransaction("Node", buildShapeStrategy, shapeBuilderFactory));
+    }
+
+	
+
+	 private void  initialize__wrappee__ShapeMove  (ComponentFactory factory, ShapeBuilderFactory shapeBuilderFactory) {
+        initialize__wrappee__Node(factory, shapeBuilderFactory);
+        mouseInputHandler.registerDragAndDropPolicy("MOUSE_1", new ShapeMoveCommand(repository, canvasRepaintCommand));
+    }
+
+	
+
+	 private void  initialize__wrappee__DeleteShape  (ComponentFactory factory, ShapeBuilderFactory shapeBuilderFactory) {
+        initialize__wrappee__ShapeMove(factory, shapeBuilderFactory);
+        mouseInputHandler.registerClickPolicy("MOUSE_3", new DeleteCommand(repository, canvasRepaintCommand));
+    }
+
+	
+
+	 private void  initialize__wrappee__ClearAll  (ComponentFactory factory, ShapeBuilderFactory shapeBuilderFactory) {
+        initialize__wrappee__DeleteShape(factory, shapeBuilderFactory);
+        mainWindow.addDrawCommand(new ClearShapesTransaction(repository, canvasRepaintCommand));
+    }
+
+	
+
+    private void initialize(ComponentFactory factory, ShapeBuilderFactory shapeBuilderFactory) {
+        initialize__wrappee__ClearAll(factory, shapeBuilderFactory);
+        TextField textField = factory.makeTextField();
+        KeyboardInputParser parser = new KeyboardInputParser(shapeBuilderFactory, buildShapeStrategy, textField);
+        textField.setParser(parser);
+        mainWindow.addTextField(textField);
     }
 
 	

@@ -1,8 +1,10 @@
 package de.tu_bs.cs.isf.spl.simplecad.core.mainwindow; 
 
-public  interface  MainWindow {
+import de.tu_bs.cs.isf.spl.simplecad.plugins.keyboard.TextField; 
+
+public   interface  MainWindow {
 	
-    void addDrawCommand(BeginDrawTransaction transaction);
+    void addDrawCommand(Transaction transaction);
 
 	
 
@@ -11,6 +13,9 @@ public  interface  MainWindow {
 	
 
     void showWindow();
+
+	
+    void addTextField(TextField textField);
 
 
 }
